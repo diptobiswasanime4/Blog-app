@@ -73,3 +73,28 @@ button {
 button:hover {
   color: lightblue;
 }
+
+.post {
+  margin: 10px;
+  display: flex;
+  gap: 10px;
+}
+
+.post > img {
+  border-radius: 10px;
+  height: 150px;
+}
+
+.info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.info > h3 {
+  margin: 0;
+}
+
+.time {
+  margin-right: 20px;
+}

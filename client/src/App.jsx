@@ -5,6 +5,7 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Signin from "./components/Signin";
 import Signup from "./components/Signup";
+import Post from "./components/Post";
 
 function App() {
   return (
@@ -23,7 +24,10 @@ function App() {
 function Home() {
   return (
     <div className="body-section">
-      <h1>Home Page</h1>
+      <div className="posts">
+        <Post />
+        <Post />
+      </div>
     </div>
   );
 }
