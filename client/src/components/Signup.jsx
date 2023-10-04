@@ -4,7 +4,7 @@ const Signup = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
-  async function RegisterUser(e) {
+  async function registerUser(e) {
     e.preventDefault();
     const options = {
       method: "POST",
@@ -14,11 +14,13 @@ const Signup = () => {
       },
     };
     const resp = await fetch("http://localhost:3000/register", options);
+    const data = await resp.json();
+    console.log(data);
   }
 
   return (
     <div className="body-section">
-      <form className="signup-form" onSubmit={RegisterUser}>
+      <form className="signup-form" onSubmit={registerUser}>
         <h2>New User? Please Register.</h2>
         <input
           type="text"

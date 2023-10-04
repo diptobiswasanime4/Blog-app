@@ -1,22 +1,23 @@
 import React from "react";
+import { Link, Navigate } from "react-router-dom";
 
-const Post = () => {
+const Post = ({ _id, title, summary, cover, createdAt, author }) => {
+  const timeParts = createdAt.split("T");
+  const time = timeParts[0] + " " + timeParts[1].split(".")[0];
   return (
-    <div className="post">
-      <img src="\src\assets\images\SciFi.jpg" alt="SciFi Hallway" />
-      <div className="post-text">
-        <h2 className="title">Nova Hallway</h2>
-        <div className="info">
-          <h3 className="author">Arya</h3>
-          <div className="time">2023-10-03</div>
+    <Link className="post-link" to={`/post/${_id}`}>
+      <div className="post">
+        <img src={"http://localhost:3000/" + cover} alt="SciFi Hallway" />
+        <div className="post-text">
+          <h2 className="title">{title}</h2>
+          <div className="info">
+            <h3 className="author">{author.username}</h3>
+            <div className="time">{time}</div>
+          </div>
+          <p className="summary">{summary}</p>
         </div>
-        <p className="summary">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis
-          temporibus provident totam explicabo vero, quibusdam repellendus, quis
-          enim suscipit voluptatum quos. Nostrum nesciunt ratione voluptas!
-        </p>
       </div>
-    </div>
+    </Link>
   );
 };
 
