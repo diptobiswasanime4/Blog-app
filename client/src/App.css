@@ -4,12 +4,17 @@ body {
   margin: 0;
 }
 
-a {
+.link {
   color: white;
   text-decoration: none;
 }
-a:hover {
+.link:hover {
   color: lightblue;
+}
+
+.post-link {
+  color: black;
+  text-decoration: none;
 }
 
 nav {
@@ -17,7 +22,7 @@ nav {
   font-size: 1.5rem;
   display: flex;
   justify-content: space-between;
-  padding: 10px;
+  padding: 10px 20px;
 }
 
 .signin-signup {
@@ -31,10 +36,13 @@ footer {
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding-bottom: 25px;
 }
 
 .body-section {
-  height: 85vh;
+  background-color: whitesmoke;
+  padding-bottom: 50px;
+  padding: 0px 250px 100px 250px;
 }
 
 .signin-form,
@@ -46,7 +54,8 @@ footer {
   gap: 20px;
 }
 
-input {
+.signin-form > input,
+.signup-form > input {
   width: 300px;
   height: 30px;
   border-radius: 10px;
@@ -56,7 +65,10 @@ input {
   padding-left: 5px;
 }
 
-button {
+.signin-form > button,
+.signup-form > button,
+.create-post > button,
+.title-container > .edit-btn > button {
   margin-top: 10px;
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
     "Lucida Sans", Arial, sans-serif;
@@ -73,14 +85,22 @@ button {
 button:hover {
   color: lightblue;
 }
-
+.posts > h1 {
+  text-align: center;
+  margin: 0;
+  padding: 20px 0px 10px 0px;
+}
 .post {
-  margin: 10px;
+  margin: 20px 20px;
   display: flex;
   gap: 10px;
+  box-shadow: 0px 0px 10px 5px grey;
+  padding: 0px 10px;
+  border-radius: 10px;
 }
 
 .post > img {
+  margin: 10px 0px;
   border-radius: 10px;
   height: 150px;
 }
@@ -97,4 +117,44 @@ button:hover {
 
 .time {
   margin-right: 20px;
+}
+
+.create-post {
+  padding-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.create-post > .create-post-heading {
+  width: 500px;
+  height: 25px;
+  font-size: 1.25rem;
+}
+
+.create-post > .create-post-file-upload {
+  align-self: center;
+}
+
+.create-post > .create-post-content {
+  width: 500px;
+}
+
+.post-details {
+  display: flex;
+  flex-direction: column;
+  margin: 10px;
+}
+
+.post-details > img {
+  margin: 10px 0px 0px 0px;
+  border-radius: 10px;
+}
+
+.title-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px 10px 10px 0px;
 }
