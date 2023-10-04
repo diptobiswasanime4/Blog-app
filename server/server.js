@@ -17,7 +17,12 @@ const PORT = 3000;
 const uploadMiddleware = multer({ dest: "uploads/" });
 
 app.use(express.json());
-app.use(cors({ credentials: true, origin: "http://localhost:5173" }));
+app.use(
+  cors({
+    credentials: true,
+    origin: "https://reliable-crisp-bd2c05.netlify.app/",
+  })
+);
 app.use(cookieParser());
 app.use("/uploads", express.static(__dirname + "/uploads"));
 

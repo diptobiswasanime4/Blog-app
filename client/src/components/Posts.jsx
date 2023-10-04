@@ -5,7 +5,7 @@ import { useEffect } from "react";
 function Posts() {
   const [posts, setPosts] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:3000/post")
+    fetch("https://blog-app-api-1dg3.onrender.com/post")
       .then((resp) => resp.json())
       .then((data) => {
         console.log(data);

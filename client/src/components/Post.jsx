@@ -7,7 +7,10 @@ const Post = ({ _id, title, summary, cover, createdAt, author }) => {
   return (
     <Link className="post-link" to={`/post/${_id}`}>
       <div className="post">
-        <img src={"http://localhost:3000/" + cover} alt="SciFi Hallway" />
+        <img
+          src={"https://blog-app-api-1dg3.onrender.com/" + cover}
+          alt="SciFi Hallway"
+        />
         <div className="post-text">
           <h2 className="title">{title}</h2>
           <div className="info">

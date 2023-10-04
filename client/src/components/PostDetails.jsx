@@ -7,7 +7,7 @@ function PostDetails() {
   const { id } = useParams();
   const { userInfo } = useContext(UserContext);
   useEffect(() => {
-    fetch(`http://localhost:3000/post/${id}`)
+    fetch(`https://blog-app-api-1dg3.onrender.com/post/${id}`)
       .then((resp) => resp.json())
       .then((data) => {
         console.log(data);
@@ -21,7 +21,7 @@ function PostDetails() {
     <div className="body-section">
       <div className="post-details">
         <img
-          src={"http://localhost:3000/" + postDetails.cover}
+          src={"https://blog-app-api-1dg3.onrender.com/" + postDetails.cover}
           alt="SciFi Hallway"
         />
         <div className="post-text">

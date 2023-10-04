@@ -21,7 +21,10 @@ function CreatePost() {
       body: formData,
       credentials: "include",
     };
-    const resp = await fetch("http://localhost:3000/post", options);
+    const resp = await fetch(
+      "https://blog-app-api-1dg3.onrender.com/post",
+      options
+    );
     const data = await resp.json();
     console.log(data);
     if (data.posted) {

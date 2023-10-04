@@ -5,7 +5,7 @@ import { UserContext } from "../UserContext";
 export default function Navbar() {
   const { userInfo, setUserInfo } = useContext(UserContext);
   useEffect(() => {
-    fetch("http://localhost:3000/profile", {
+    fetch("https://blog-app-api-1dg3.onrender.com/profile", {
       credentials: "include",
     })
       .then((resp) => resp.json())
@@ -27,7 +27,10 @@ export default function Navbar() {
       },
       credentials: "include",
     };
-    const resp = await fetch("http://localhost:3000/logout", options);
+    const resp = await fetch(
+      "https://blog-app-api-1dg3.onrender.com/logout",
+      options
+    );
     const data = await resp.json();
     console.log(data);
     setUserInfo({});

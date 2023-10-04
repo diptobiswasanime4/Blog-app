@@ -13,7 +13,10 @@ const Signup = () => {
         "Content-Type": "application/json",
       },
     };
-    const resp = await fetch("http://localhost:3000/register", options);
+    const resp = await fetch(
+      "https://blog-app-api-1dg3.onrender.com/register",
+      options
+    );
     const data = await resp.json();
     console.log(data);
   }
