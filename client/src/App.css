@@ -138,6 +138,7 @@ button:hover {
 }
 
 .create-post > .create-post-content {
+  background-color: white;
   width: 500px;
 }
 
