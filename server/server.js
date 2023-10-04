@@ -20,7 +20,7 @@ app.use(express.json());
 app.use(
   cors({
     credentials: true,
-    origin: "https://reliable-crisp-bd2c05.netlify.app/",
+    origin: "https://reliable-crisp-bd2c05.netlify.app",
   })
 );
 app.use(cookieParser());
