@@ -5,6 +5,7 @@ import { UserContext } from "../UserContext";
 function PostDetails() {
   const [comment, setComment] = useState("");
   const [postDetails, setPostDetails] = useState({});
+  const [allComments, setAllComments] = useState([]);
   const { id } = useParams();
   const { userInfo } = useContext(UserContext);
   useEffect(() => {
@@ -18,6 +19,26 @@ function PostDetails() {
         console.log("Got an error.", err);
       });
   }, []);
+
+  async function commentInPost(e) {
+    e.preventDefault();
+    const options = {
+      method: "POST",
+      body: JSON.stringify({
+        comment,
+        userInfo,
+      }),
+      credentials: "include",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    };
+    const resp = await fetch(`http://localhost:3000/post/${id}`, options);
+    const data = await resp.json();
+    console.log(data.comments);
+    setComment("");
+    setAllComments(data.comments);
+  }
   return (
     <div className="body-section">
       <div className="post-details">
@@ -43,7 +64,7 @@ function PostDetails() {
       </div>
       <div className="comments-section">
         <h1>Comments Section</h1>
-        <div className="user-comment">
+        <form className="user-comment" onSubmit={commentInPost}>
           <input
             type="text"
             placeholder="Comment here"
@@ -51,8 +72,18 @@ function PostDetails() {
             onChange={(e) => setComment(e.target.value)}
           />
           <button>Comment</button>
-        </div>
+        </form>
         <hr />
+        <div className="comments">
+          {allComments.map((oneComment, index) => {
+            return (
+              <div className="comment" key={index}>
+                <div className="comment-author">{oneComment.author}</div>
+                <div className="comment-text">{oneComment.comment}</div>
+              </div>
+            );
+          })}
+        </div>
       </div>
     </div>
   );

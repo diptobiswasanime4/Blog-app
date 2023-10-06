@@ -156,7 +156,7 @@ button:hover {
 .post-details {
   display: flex;
   flex-direction: column;
-  margin: 10px;
+  padding: 10px;
 }
 
 .post-details > img {
@@ -199,4 +199,24 @@ button:hover {
   box-shadow: 0px 0px 5px 3px grey;
   cursor: pointer;
   margin-top: 0px;
+}
+
+.comment {
+  background-color: whitesmoke;
+  color: black;
+  box-shadow: 0px 0px 5px 3px grey;
+  margin: 10px;
+  padding: 5px;
+  border-radius: 10px;
+}
+
+.comment > .comment-author {
+  border-bottom: 1px solid lightgray;
+  padding-bottom: 5px;
+  font-weight: bold;
+  font-size: 1.05rem;
+}
+
+.comment > .comment-text {
+  padding-top: 5px;
 }

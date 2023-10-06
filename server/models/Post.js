@@ -1,6 +1,11 @@
 const mongoose = require("mongoose");
 const { Schema, model } = mongoose;
 
+const CommentSchema = new Schema({
+  comment: String,
+  author: String,
+});
+
 const PostSchema = new Schema(
   {
     title: {
@@ -14,6 +19,7 @@ const PostSchema = new Schema(
       type: Schema.Types.ObjectId,
       ref: "User",
     },
+    comments: [CommentSchema],
   },
   {
     timestamps: true,

@@ -180,6 +180,29 @@ app.get("/post/:id", async (req, res) => {
   }
 });
 
+app.post("/post/:id", async (req, res) => {
+  try {
+    const { comment, userInfo } = req.body;
+    const postDoc = await Post.findById({ _id: req.params.id });
+    if (!postDoc) {
+      res.json({ msg: "Post not found" });
+    } else {
+      const newComment = {
+        comment: comment,
+        author: userInfo.username,
+      };
+      postDoc.comments.push(newComment);
+      await postDoc.save();
+      res.json(postDoc);
+    }
+  } catch (err) {
+    res.json({
+      msg: `Got an error in post with id ${req.params.id}`,
+      Error: err,
+    });
+  }
+});
+
 // Start App
 app.listen(PORT, () => {
   console.log(`App running in PORT ${PORT}...`);
