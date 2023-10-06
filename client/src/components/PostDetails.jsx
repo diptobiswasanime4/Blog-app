@@ -3,6 +3,7 @@ import { useParams, Link } from "react-router-dom";
 import { UserContext } from "../UserContext";
 
 function PostDetails() {
+  const [comment, setComment] = useState("");
   const [postDetails, setPostDetails] = useState({});
   const { id } = useParams();
   const { userInfo } = useContext(UserContext);
@@ -39,6 +40,19 @@ function PostDetails() {
           </div>
           <p className="summary">{postDetails.summary}</p>
         </div>
+      </div>
+      <div className="comments-section">
+        <h1>Comments Section</h1>
+        <div className="user-comment">
+          <input
+            type="text"
+            placeholder="Comment here"
+            value={comment}
+            onChange={(e) => setComment(e.target.value)}
+          />
+          <button>Comment</button>
+        </div>
+        <hr />
       </div>
     </div>
   );

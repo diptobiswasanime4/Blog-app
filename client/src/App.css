@@ -56,7 +56,18 @@ footer {
 
 .signin-form > input,
 .signup-form > input {
-  width: 300px;
+  width: 500px;
+  height: 30px;
+  border-radius: 10px;
+  border: none;
+  box-shadow: 0px 0px 10px 3px grey;
+  font-size: 1.25rem;
+  padding-left: 5px;
+}
+
+.firstname-lastname > input {
+  width: 155px;
+  margin: 0px 5px;
   height: 30px;
   border-radius: 10px;
   border: none;
@@ -158,4 +169,34 @@ button:hover {
   justify-content: space-between;
   align-items: center;
   padding: 0px 10px 10px 0px;
+}
+
+.user-comment {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 5px;
+}
+
+.user-comment > input {
+  border: none;
+  width: 675px;
+  height: 30px;
+  font-size: 1.25rem;
+  border-radius: 5px;
+  background-color: whitesmoke;
+}
+.user-comment > button {
+  margin-top: 10px;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+  width: 140px;
+  height: 30px;
+  background-color: black;
+  color: white;
+  border: none;
+  font-size: 1.5rem;
+  border-radius: 15px;
+  box-shadow: 0px 0px 5px 3px grey;
+  cursor: pointer;
+  margin-top: 0px;
 }

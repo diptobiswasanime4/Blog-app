@@ -36,19 +36,31 @@ app.get("/", (req, res) => {
 });
 
 app.post("/register", async (req, res) => {
-  const { username, password } = req.body;
+  const { firstname, middlename, lastname, email, username, password } =
+    req.body;
   const UserDoc = await User.findOne({ username });
   if (UserDoc) {
     res.json({ msg: "User already exists.", registered: false });
   } else {
     const hashPassword = bcrypt.hashSync(password, 10);
     const newUser = new User({
+      firstname,
+      middlename,
+      lastname,
+      email,
       username,
       password,
       hashPassword,
     });
     await newUser.save();
-    res.json({ username, registered: true });
+    res.json({
+      firstname,
+      middlename,
+      lastname,
+      email,
+      username,
+      registered: true,
+    });
   }
 });
 
@@ -120,7 +132,7 @@ app.post("/post", uploadMiddleware.single("file"), async (req, res) => {
 
 app.get("/post", async (req, res) => {
   const posts = await Post.find()
-    .populate("author", ["username"])
+    .populate("author", ["username", "firstname", "middlename", "lastname"])
     .sort({ createdAt: -1 })
     .limit(10);
   res.json(posts);
