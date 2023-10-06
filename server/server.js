@@ -16,20 +16,20 @@ const PORT = 3000;
 
 const uploadMiddleware = multer({ dest: "uploads/" });
 
-app.use((req, res, next) => {
-  res.setHeader(
-    "Access-Control-Allow-Origin",
-    "https://dipto-blog-app.netlify.app"
-  );
-  res.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
-  res.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization");
-  next();
-});
+// app.use((req, res, next) => {
+//   res.setHeader(
+//     "Access-Control-Allow-Origin",
+//     "https://dipto-blog-app.netlify.app"
+//   );
+//   res.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
+//   res.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization");
+//   next();
+// });
 app.use(express.json());
 app.use(
   cors({
     credentials: true,
-    origin: "https://reliable-crisp-bd2c05.netlify.app",
+    origin: "https://dipto-blog-app.netlify.app",
   })
 );
 app.use(cookieParser());
@@ -79,7 +79,11 @@ app.post("/login", async (req, res) => {
       jwt.sign({ username, id: UserDoc._id }, JWT_SECRET, {}, (err, token) => {
         if (err) throw err;
         res
-          .cookie("token", token)
+          .cookie("token", token, {
+            httpOnly: true,
+            secure: true, // Set the cookie over HTTPS only
+            sameSite: "none", // Allow the cookie to be sent cross-origin
+          })
           .json({ username, id: UserDoc._id, token, loggedIn: true });
       });
     }
@@ -101,7 +105,11 @@ app.get("/profile", async (req, res) => {
 app.post("/logout", async (req, res) => {
   const { username } = req.body;
   res
-    .cookie("token", "")
+    .cookie("token", "", {
+      httpOnly: true,
+      secure: true, // Set the cookie over HTTPS only
+      sameSite: "none", // Allow the cookie to be sent cross-origin
+    })
     .json({ msg: "Logged out", username, loggedIn: false });
 });
 
