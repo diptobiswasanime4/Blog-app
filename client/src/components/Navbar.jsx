@@ -41,9 +41,14 @@ export default function Navbar() {
         <Link className="link" to="/">
           Home
         </Link>
-        <Link className="link" to="create">
-          Create
-        </Link>
+        <div className="profile-links">
+          <Link className="link" to="create">
+            Create
+          </Link>
+          <Link className="link" to="profile">
+            Profile
+          </Link>
+        </div>
         <Link className="link" to="signin" onClick={logoutUser}>
           Logout
         </Link>

@@ -9,6 +9,7 @@ import CreatePost from "./components/CreatePost";
 import Posts from "./components/Posts";
 import PostDetails from "./components/PostDetails";
 import EditPost from "./components/EditPost";
+import UserProfile from "./components/UserProfile";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
           <Route path="signin" element={<Signin />}></Route>
           <Route path="signup" element={<Signup />}></Route>
           <Route path="create" element={<CreatePost />}></Route>
+          <Route path="profile" element={<UserProfile />}></Route>
           <Route path="/post/:id" element={<PostDetails />}></Route>
           <Route path="/edit/:id" element={<EditPost />}></Route>
         </Route>

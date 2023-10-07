@@ -74,6 +74,7 @@ function PostDetails() {
           <button>Comment</button>
         </form>
         <hr />
+        <br />
         <div className="comments">
           {allComments.map((oneComment, index) => {
             return (
